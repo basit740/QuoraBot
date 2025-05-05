@@ -84,9 +84,7 @@ async function sendFormattedQuoraLinksEmail(keywords) {
 }
 
 // Entry point
-if (KEYWORDS.length === 0) {
-  console.warn("⚠️ No keywords found in environment variable KEYWORDS.");
-} else if (!EMAIL_TO) {
+if (!EMAIL_TO) {
   console.warn("⚠️ Missing EMAIL_TO environment variable.");
 } else {
   sendFormattedQuoraLinksEmail(KEYWORDS);
