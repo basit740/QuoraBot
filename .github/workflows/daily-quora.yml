@@ -11,7 +11,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v3  # ✅ Ensures latest code is pulled
 
       - name: Set up Node.js
         uses: actions/setup-node@v3
@@ -19,10 +19,13 @@ jobs:
           node-version: '18'
 
       - name: Install dependencies
-        run: npm install axios nodemailer
+        run: npm install
 
       - name: Run Quora script
         run: node Quora.js
         env:
           EMAIL_USER: ${{ secrets.EMAIL_USER }}
           EMAIL_PASS: ${{ secrets.EMAIL_PASS }}
+          EMAIL_TO: ${{ secrets.EMAIL_TO }}
+          QUORA_COOKIE: ${{ secrets.QUORA_COOKIE }}
+          KEYWORDS: ${{ secrets.KEYWORDS }}  # ✅ Added missing keyword variable
