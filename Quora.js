@@ -7,6 +7,10 @@ const EMAIL_PASS = process.env.EMAIL_PASS;
 const EMAIL_TO = process.env.EMAIL_TO;
 const KEYWORDS = process.env.KEYWORDS?.split(',').map(k => k.trim()) || [];
 
+console.log("✅ Loaded KEYWORDS from ENV:", process.env.KEYWORDS);
+console.log("✅ Parsed:", process.env.KEYWORDS?.split(',').map(k => k.trim()));
+
+
 async function searchQuoraFullLinks(keyword) {
   const url = `https://www.quora.com/search?q=${encodeURIComponent(keyword)}&time=day`;
 
